@@ -2,6 +2,7 @@ package com.example.book.web;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,31 +19,32 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RestController
 public class BookController {
-    
+
     private final BookService bookService;
 
     @PostMapping("/book")
-    public ResponseEntity<?> save(@RequestBody Book book){
+    public ResponseEntity<?> save(@RequestBody Book book) {
         return new ResponseEntity<>(bookService.save(book), HttpStatus.CREATED);
     }
 
+    @CrossOrigin
     @GetMapping("/book")
-    public ResponseEntity<?> findAll(){
+    public ResponseEntity<?> findAll() {
         return new ResponseEntity<>(bookService.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/book/{id}")
-    public ResponseEntity<?> findById(@PathVariable Long id){
+    public ResponseEntity<?> findById(@PathVariable Long id) {
         return new ResponseEntity<>(bookService.findById(id), HttpStatus.OK);
     }
 
     @PutMapping("/book/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Book book){
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Book book) {
         return new ResponseEntity<>(bookService.update(id, book), HttpStatus.OK);
     }
 
     @DeleteMapping("/book/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id){
+    public ResponseEntity<?> delete(@PathVariable Long id) {
         return new ResponseEntity<>(bookService.delete(id), HttpStatus.OK);
     }
 }

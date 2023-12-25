@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <StyledContainerDiv>
       {books.map((book) => (
-        <BookItem />
+        <BookItem key={book.id} book={book} />
       ))}
     </StyledContainerDiv>
   );
