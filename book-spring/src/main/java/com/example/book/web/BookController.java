@@ -22,6 +22,7 @@ public class BookController {
 
     private final BookService bookService;
 
+    @CrossOrigin
     @PostMapping("/book")
     public ResponseEntity<?> save(@RequestBody Book book) {
         return new ResponseEntity<>(bookService.save(book), HttpStatus.CREATED);
