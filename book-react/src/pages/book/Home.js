@@ -1,10 +1,16 @@
 import React from 'react';
+import BookItem from '../../components/BookItem';
+import styled from 'styled-components';
+
+const StyledContainerDiv = styled.div`
+  margin-top: 30px;
+`;
 
 const Home = () => {
   return (
-    <div>
-      <h1>책 리스트</h1>
-    </div>
+    <StyledContainerDiv>
+      <BookItem />
+    </StyledContainerDiv>
   );
 };
 

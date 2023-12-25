@@ -10,9 +10,10 @@
 
 ### React
 
+- npm install styled-components
+- yarn add react-bootstrap bootstrap
 - npm i react-router-dom
 - yarn add redux react-redux
-- yarn add react-bootstrap bootstrap
 
 ```txt
 import 'bootstrap/dist/css/bootstrap.min.css';
