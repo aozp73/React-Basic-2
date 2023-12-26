@@ -16,25 +16,23 @@ import com.example.book.service.BookService;
 
 import lombok.RequiredArgsConstructor;
 
+@CrossOrigin
 @RequiredArgsConstructor
 @RestController
 public class BookController {
 
     private final BookService bookService;
 
-    @CrossOrigin
     @PostMapping("/book")
     public ResponseEntity<?> save(@RequestBody Book book) {
         return new ResponseEntity<>(bookService.save(book), HttpStatus.CREATED);
     }
 
-    @CrossOrigin
     @GetMapping("/book")
     public ResponseEntity<?> findAll() {
         return new ResponseEntity<>(bookService.findAll(), HttpStatus.OK);
     }
 
-    @CrossOrigin
     @GetMapping("/book/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id) {
         return new ResponseEntity<>(bookService.findById(id), HttpStatus.OK);
@@ -45,7 +43,6 @@ public class BookController {
         return new ResponseEntity<>(bookService.update(id, book), HttpStatus.OK);
     }
 
-    @CrossOrigin
     @DeleteMapping("/book/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         return new ResponseEntity<>(bookService.delete(id), HttpStatus.OK);

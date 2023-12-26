@@ -47,10 +47,16 @@ const Detail = () => {
       });
   };
 
+  const updateBook = () => {
+    navigate('/updateForm/' + paramId, { state: book });
+  };
+
   return (
     <StyledContainerDiv>
       <h1>상세보기</h1>
-      <Button variant="warning">수정</Button>{' '}
+      <Button variant="warning" onClick={updateBook}>
+        수정
+      </Button>{' '}
       <Button variant="danger" onClick={deleteBook}>
         삭제
       </Button>

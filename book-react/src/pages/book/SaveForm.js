@@ -28,17 +28,21 @@ const SaveForm = () => {
       body: JSON.stringify(book),
     })
       .then((res) => {
-        // if (res.status !== 201) {
-        //   return res.json();
-        // } else {
-        //   return null;
-        // }
+        if (res.status === 201) {
+          return res.json();
+        } else {
+          return null;
+        }
       })
-      .then(() => {
-        navigate('/');
+      .then((data) => {
+        if (data !== null) {
+          navigate('/');
+        } else {
+          alert('책 등록에 실패하였습니다.');
+        }
       })
       .catch((error) => {
-        alert('책 등록에 실패하였습니다.');
+        alert('올바르지 않은 요청입니다.');
         console.error('Error fetching data:', error);
       });
   };
