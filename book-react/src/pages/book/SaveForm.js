@@ -28,13 +28,13 @@ const SaveForm = () => {
       body: JSON.stringify(book),
     })
       .then((res) => {
-        if (res.status === 201) {
-          return res.json();
-        } else {
-          return null;
-        }
+        // if (res.status !== 201) {
+        //   return res.json();
+        // } else {
+        //   return null;
+        // }
       })
-      .then((data) => {
+      .then(() => {
         navigate('/');
       })
       .catch((error) => {
