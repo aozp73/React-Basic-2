@@ -45,6 +45,7 @@ public class BookController {
         return new ResponseEntity<>(bookService.update(id, book), HttpStatus.OK);
     }
 
+    @CrossOrigin
     @DeleteMapping("/book/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         return new ResponseEntity<>(bookService.delete(id), HttpStatus.OK);
