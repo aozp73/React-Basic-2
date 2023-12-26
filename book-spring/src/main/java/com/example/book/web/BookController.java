@@ -34,6 +34,7 @@ public class BookController {
         return new ResponseEntity<>(bookService.findAll(), HttpStatus.OK);
     }
 
+    @CrossOrigin
     @GetMapping("/book/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id) {
         return new ResponseEntity<>(bookService.findById(id), HttpStatus.OK);
